@@ -16,7 +16,7 @@
    colnames(mergey) <- "activity"
  
  # read features.txt data
-   featuredata <- read.table("./features.txt")
+   feature <- read.table("./features.txt")
  
    names(mergeX) <- feature$V2
  
@@ -38,6 +38,7 @@
  
  # merges the training and the test sets to create one data set.
    Dataset <- cbind(mergeX,activitylbl[["description"]],mergeSubj)
+   colnames(Dataset)[562] = "ActivityName"
  
  # extract Mean and Standard Deviation data from Features.txt
    measureextract <- grep(".*[Mm]ean\\(\\)|.*[Ss]td\\(\\)",feature$V2)
@@ -50,9 +51,9 @@
  # for each activity and each subject. 
    
    tidydata <- data.table(cleandata)
-   averagedata <-  tidydata[, lapply(.SD, mean), by=c("subject", "activity")]
+   averagedata <-  tidydata[, lapply(.SD, mean), by=c("subject", "activityName")]
  # Orders the dataset of the average by the activity 
-   averagedata <- averagedata[order(averagedata$activity,]
+   averagedata <- averagedata[order(averagedata$activityName,]
 
  # Exporting data into a .txt file:
    write.table(averagedata, "tidydata.txt",sep='\t')
