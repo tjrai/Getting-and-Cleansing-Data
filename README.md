@@ -1,5 +1,4 @@
-DataCleansingCourse
-===================
+
 #README.md
 
 # Script File : run_Analysis.R
