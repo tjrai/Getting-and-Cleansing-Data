@@ -33,6 +33,7 @@ cleandata: creates a data frame with only mean() and std() measurements
 along with activity and subject
 tidydata: creates another data table of cleandata
 averagedata: calculates the average/mean of tidydata i.e for each measurement for each subject and each activity
+Finally output the Mean of the results in a file
 
 Transformations:
 
